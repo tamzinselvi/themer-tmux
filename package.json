@@ -1,0 +1,48 @@
+{
+  "name": "themer-tmux",
+  "version": "1.0.0",
+  "description": "tmux template for themer.",
+  "main": "lib/index.js",
+  "engines": {
+    "node": ">=6.11"
+  },
+  "author": "tomselvi",
+  "repository": {
+    "url": "git+ssh://git@github.com/tomselvi/themer-tmux.git",
+    "type": "git"
+  },
+  "license": "MIT",
+  "jest": {
+    "rootDir": "lib"
+  },
+  "scripts": {
+    "build": "eslint src && babel --out-dir lib src",
+    "test": "npm run build && jest",
+    "start": "watch 'npm run test' src",
+    "prepare": "npm run build"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-preset-env": "^1.5.2",
+    "eslint": "^3.12.2",
+    "jest": "^18.1.0",
+    "themer-colors-default": "^1.0.1",
+    "watch": "^1.0.1"
+  },
+  "peerDependencies": {
+    "themer": "^1.0.2||^2"
+  },
+  "bugs": {
+    "url": "https://github.com/tomselvi/themer-tmux/issues"
+  },
+  "homepage": "https://github.com/tomselvi/themer-tmux#readme",
+  "directories": {
+    "lib": "lib"
+  },
+  "keywords": [
+    "themer",
+    "tmux",
+    "theme",
+    "colorscheme"
+  ]
+}
