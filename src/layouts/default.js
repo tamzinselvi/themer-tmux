@@ -29,7 +29,7 @@ set -g status-right-length 150
 set -g status-right "#[fg=${colorSet.shade2},bg=${colorSet.shade1}]#[fg=${colorSet.shade4},bg=${colorSet.shade2}] %H:%M:%S #[fg=${colorSet.shade4},bg=${colorSet.shade2}]#[fg=${colorSet.shade1},bg=${colorSet.shade4}] %d-%b-%y #[fg=${colorSet.shade6},bg=${colorSet.shade4}]#[fg=${colorSet.shade0},bg=${colorSet.shade6},bold] #H "
 
 # Window status
-set -g window-status-format "  #I:#W#F  "
+set -g window-status-format "#[fg=${colorSet.shade7}]#[bg=${colorSet.shade1}]  #I:#W#F  "
 set -g window-status-current-format "#[fg=${colorSet.shade1},bg=black]#[fg=${colorSet.accent1},nobold] #I:#W#F #[fg=${colorSet.shade1},bg=black,nobold]"
 
 # Current window status
