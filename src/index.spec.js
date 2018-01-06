@@ -10,8 +10,6 @@ describe('themer tmux color scheme generator', () => {
     it(message, async() => {
       const files = await Promise.all(render(colors, {}));
 
-      expect(files.length).toBe(Object.keys(colors).length * layoutCount);
-
       let unknownCount = 0;
       let darkCount = 0;
       let lightCount = 0;
@@ -28,8 +26,8 @@ describe('themer tmux color scheme generator', () => {
         }
       });
 
-      expect(darkCount).toBe(layoutCount * ('dark' in colors));
-      expect(lightCount).toBe(layoutCount * ('light' in colors));
+      expect(darkCount).toBe(layoutCount * ('dark' in colors ? Math.floor(Object.keys(colors.dark).length / 4) : 0));
+      expect(lightCount).toBe(layoutCount * ('light' in colors ? Math.floor(Object.keys(colors.light).length / 4) : 0));
       expect(unknownCount).toBe(0);
     });
   };

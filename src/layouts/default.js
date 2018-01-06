@@ -1,4 +1,4 @@
-export default (colorSet) => `#
+export default (colorSet, i) => `#
 # Powerline Blue - Tmux Theme
 # Originally created by Jim Myhrberg <contact@jimeh.me>.
 # Modified for use by Themer by Tom Selvi <tomselvi@gmail.com>.
@@ -20,7 +20,7 @@ set -g status-bg "${colorSet.shade1}"
 set -g status-left-bg "${colorSet.shade1}"
 set -g status-left-fg "${colorSet.shade5}"
 set -g status-left-length 40
-set -g status-left "#[fg=${colorSet.shade0},bg=${colorSet.accent0},bold] #S #[fg=${colorSet.accent0},bg=${colorSet.shade4},nobold]#[fg=${colorSet.shade1},bg=${colorSet.shade4}] #(whoami) #[fg=${colorSet.shade4},bg=${colorSet.shade2}]#[fg=${colorSet.shade4},bg=${colorSet.shade2}] #I:#P #[fg=${colorSet.shade2},bg=${colorSet.shade1},nobold]"
+set -g status-left "#[fg=${colorSet.shade0},bg=${colorSet[`accent${i}`]},bold] #S #[fg=${colorSet[`accent${i}`]},bg=${colorSet.shade4},nobold]#[fg=${colorSet.shade1},bg=${colorSet.shade4}] #(whoami) #[fg=${colorSet.shade4},bg=${colorSet.shade2}]#[fg=${colorSet.shade4},bg=${colorSet.shade2}] #I:#P #[fg=${colorSet.shade2},bg=${colorSet.shade1},nobold]"
 
 # Right side of status bar
 set -g status-right-bg ${colorSet.shade1}
@@ -30,10 +30,10 @@ set -g status-right "#[fg=${colorSet.shade2},bg=${colorSet.shade1}]#[fg=${col
 
 # Window status
 set -g window-status-format "#[fg=${colorSet.shade7}]#[bg=${colorSet.shade1}]  #I:#W#F  "
-set -g window-status-current-format "#[fg=${colorSet.shade1},bg=black]#[fg=${colorSet.accent1},nobold] #I:#W#F #[fg=${colorSet.shade1},bg=black,nobold]"
+set -g window-status-current-format "#[fg=${colorSet.shade1},bg=black]#[fg=${colorSet[`accent${i + 1}`]},nobold] #I:#W#F #[fg=${colorSet.shade1},bg=black,nobold]"
 
 # Current window status
-set -g window-status-current-bg ${colorSet.accent0}
+set -g window-status-current-bg ${colorSet[`accent${i}`]}
 set -g window-status-current-fg ${colorSet.shade2}
 
 # Window with activity status
@@ -52,18 +52,18 @@ set -g pane-border-fg ${colorSet.shade3}
 
 # Active pane border
 set -g pane-active-border-bg default
-set -g pane-active-border-fg ${colorSet.accent0}
+set -g pane-active-border-fg ${colorSet[`accent${i}`]}
 
 # Pane number indicator
 set -g display-panes-colour ${colorSet.shade1}
 set -g display-panes-active-colour ${colorSet.shade6}
 
 # Clock mode
-set -g clock-mode-colour ${colorSet.accent0}
+set -g clock-mode-colour ${colorSet[`accent${i}`]}
 set -g clock-mode-style 24
 
 # Message
-set -g message-bg ${colorSet.accent0}
+set -g message-bg ${colorSet[`accent${i}`]}
 set -g message-fg black
 
 # Command message
@@ -71,5 +71,5 @@ set -g message-command-bg ${colorSet.shade1}
 set -g message-command-fg black
 
 # Mode
-set -g mode-bg ${colorSet.accent0}
+set -g mode-bg ${colorSet[`accent${i}`]}
 set -g mode-fg ${colorSet.shade7}`;

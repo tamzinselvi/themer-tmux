@@ -15,7 +15,7 @@ Then pass `themer-tmux` as a `-t` (`--template`) arg to `themer`:
 ## Output
 
 `themer-tmux` will generate multiple colorscheme files for you to choose from. These will include both the light and
-dark pallettes, as well as 3 layouts (default, block & double).
+dark pallettes, as well as 3 layouts (default, block & double) and 4 accent pairs (v0, v1, v2, v3).
 
 These layouts require a powerline font and were adapted from [jimeh/tmux-themepack](https://github.com/jimeh/tmux-themepack)
 

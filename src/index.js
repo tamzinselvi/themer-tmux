@@ -10,11 +10,17 @@ export const render = (colors) => {
     }
 
     return Object.keys(layouts).map((layout) => {
-      return Promise.resolve({
-        name: `themer-tmux.${cs}.${layout}.tmuxtheme`,
-        contents: Buffer.from(layouts[layout](colorSet), 'utf8')
-      });
-    });
+      const result = [];
+
+      for (let i = 0; i < Math.floor(Object.keys(colorSet).length / 4); i++) {
+        result.push(Promise.resolve({
+          name: `themer-tmux.${cs}.${layout}.v${i}.tmuxtheme`,
+          contents: Buffer.from(layouts[layout](colorSet, i), 'utf8')
+        }));
+      }
+
+      return result;
+    }).reduce((a, b) => a.concat(b), []);
   }).reduce((a, b) => a.concat(b), []);
 
 };
